@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import ContactButtons from '../../components/ContactButtons.astro';
+import { site, allProducts, categoryBySlug, productsIn, productImage, url } from '../../lib/site';
+
+export function getStaticPaths() {
+  return allProducts.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+const { product } = Astro.props;
+const category = categoryBySlug(product.category)!;
+const related = productsIn(product.category).filter((p) => p.slug !== product.slug).slice(0, 3);
+const image = productImage(product);
+const description = `${product.name}｜${product.summary}`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  description: product.description.join(' '),
+  image: new URL(image, Astro.site).href,
+  brand: { '@type': 'Brand', name: `${site.name} ${site.nameEn}` },
+  category: category.name,
+};
+---
+<Base title={product.name} description={description} ogImage={image} ogType="product">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="wrap">
+    <nav class="crumb" aria-label="路徑">
+      <ol>
+        <li><a href={url('/')}>首頁</a></li>
+        <li><a href={url(`/${category.slug}/`)}>{category.name}</a></li>
+        <li aria-current="page">{product.name}</li>
+      </ol>
+    </nav>
+  </div>
+
+  <article class="wrap pd">
+    <div class="ph">
+      <img src={image} alt={product.alt} width="1200" height="1200" loading="eager" fetchpriority="high" />
+    </div>
+    <div class="info">
+      <a class="tag" href={url(`/${category.slug}/`)}>{category.name}</a>
+      <h1>{product.name}</h1>
+      <div class="desc">
+        {product.description.map((d) => <p>{d}</p>)}
+      </div>
+      <dl class="specs">
+        {product.specs.map((s) => (<><dt>{s.label}</dt><dd>{s.value}</dd></>))}
+      </dl>
+      {product.extras && (
+        <div class="extras">
+          <h2>禮盒內容</h2>
+          {product.extras.map((e) => (<div class="extra"><h3>{e.title}</h3><p>{e.text}</p></div>))}
+        </div>
+      )}
+      {product.note && <p class="note">{product.note}</p>}
+      <ContactButtons lineLabel="LINE 詢問訂購" />
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="wrap section" aria-labelledby="related-title">
+      <div class="section-head">
+        <h2 id="related-title">同系列商品</h2>
+        <a href={url(`/${category.slug}/`)}>查看全部 →</a>
+      </div>
+      <div class="grid">{related.map((p) => <ProductCard product={p} />)}</div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .pd { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 24px 0 48px; align-items: start; }
+  .ph { aspect-ratio: 1 / 1; border-radius: var(--radius); overflow: hidden; background: #efebe3; position: sticky; top: 88px; }
+  .ph img { width: 100%; height: 100%; object-fit: cover; }
+  .info h1 { font-size: 32px; margin: 10px 0 16px; }
+  .desc { color: var(--muted); }
+  .specs { display: grid; grid-template-columns: 104px 1fr; gap: 10px 16px; font-size: 15px; border-top: 1px solid var(--line); padding-top: 20px; margin: 8px 0 24px; }
+  .specs dt { color: var(--muted); }
+  .specs dd { margin: 0; }
+  .extras { border-top: 1px solid var(--line); padding-top: 20px; margin-bottom: 24px; }
+  .extras h2 { font-size: 18px; margin-bottom: 12px; }
+  .extra h3 { font-family: var(--font-sans); font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+  .extra p { color: var(--muted); font-size: 15px; }
+  .note { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  @media (max-width: 860px) {
+    .pd { grid-template-columns: 1fr; gap: 24px; padding-top: 12px; }
+    .ph { position: static; }
+    .info h1 { font-size: 26px; }
+    .specs { grid-template-columns: 88px 1fr; font-size: 14px; }
+  }
+</style>

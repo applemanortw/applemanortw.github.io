@@ -1,0 +1,19 @@
+{
+  "name": "applemanor",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "蘋果莊園 Apple Manor 官方網站（靜態網站）",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "images": "node scripts/import-images.mjs",
+    "placeholders": "node scripts/make-placeholders.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.8",
+    "sharp": "^0.35.5"
+  }
+}

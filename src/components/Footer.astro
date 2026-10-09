@@ -1,0 +1,40 @@
+---
+import { site, url } from '../lib/site';
+import ContactButtons from './ContactButtons.astro';
+const year = new Date().getFullYear();
+---
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap in">
+    <div>
+      <h2 id="contact-title">聯絡我們</h2>
+      <p class="muted">歡迎來電或加入 LINE 官方帳號，詢問商品與訂購。</p>
+      <ContactButtons phoneFirst />
+    </div>
+    <a class="qr" href={site.line} target="_blank" rel="noopener" aria-label="掃描或點擊 QR code 加入蘋果莊園 LINE 官方帳號">
+      <img src={url(site.lineQr)} alt="" width="160" height="160" loading="lazy" />
+      <span>LINE 官方帳號</span>
+    </a>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© {year} {site.name} {site.nameEn} · {site.tagline}</p>
+  </div>
+</footer>
+
+<style>
+  .contact { background: var(--surface); border-top: 1px solid var(--line); padding: 64px 0; }
+  .in { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+  .contact h2 { font-size: 28px; margin-bottom: 10px; }
+  .contact p { margin-bottom: 22px; }
+  .qr { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+  .qr img { width: 160px; height: 160px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; padding: 8px; }
+  .site-footer { padding: 28px 0; color: var(--muted); font-size: 13px; text-align: center; }
+  .site-footer p { margin: 0; }
+  @media (max-width: 720px) {
+    .contact { padding: 44px 0; }
+    .in { grid-template-columns: 1fr; gap: 28px; }
+    .contact h2 { font-size: 24px; }
+    .qr { align-items: flex-start; }
+  }
+</style>

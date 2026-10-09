@@ -1,0 +1,24 @@
+{
+  "name": "蘋果莊園",
+  "nameEn": "Apple Manor",
+  "tagline": "堅持草本 · 崇尚自然",
+  "taglineEn": "Absolutely Natural · Comprehensive Care",
+  "description": "蘋果莊園 Apple Manor 傳承古老漢方的純樸與自然，以天然植物為基礎，製作草本手工皂、植物調理保養品、居家清潔用品與精緻禮盒。堅持草本，崇尚自然。",
+  "phone": "02-2711-5939",
+  "phoneHref": "tel:+886227115939",
+  "line": "https://lin.ee/jkzuyIV",
+  "lineQr": "/images/line-qr.webp",
+  "about": {
+    "intro": "我們重視每一個細節，傳承中國古老漢方的純樸與自然，堅持天然環保，秉持『回歸自然』的理念，以天然植物為基礎，以最溫和、最自然的特性，創造精緻、環保且安全的高品質天然草本生活。",
+    "philosophyLabel": "我們的理念",
+    "philosophy": "『堅持草本』、『崇尚自然』",
+    "promiseLabel": "我們的承諾",
+    "promise": "創造精緻、環保且安全的高品質草本生活，是我們的堅持。"
+  },
+  "categories": [
+    { "slug": "soap",  "name": "手工皂商品", "short": "手工皂", "subtitle": "絕對是您用過最好的手工皂", "blurb": "14 款草本冷製皂", "intro": "獨家天然草本配方，溫和自然，具有嫩白、緊緻、青春等功效。運用中草藥之特性，由內而外調理修護肌膚，讓肌膚恢復自主平衡的狀態，呈現健康細緻亮麗。唯有透過漢方保養的概念，全面性調理修護肌膚；天然草本配方不添加任何化學物品，讓您的肌膚得到真正的健康，是最上等之成品。" },
+    { "slug": "plant", "name": "植物調理系列", "short": "植物調理", "subtitle": "由內而外調理修護肌膚", "blurb": "精華油、馬油霜、面膜", "intro": "" },
+    { "slug": "bath",  "name": "居家樂活", "short": "居家樂活", "subtitle": "「蘋果莊園」為您創造精緻．環保．安全．高品質的生活品味", "blurb": "洗衣皂絲、洗髮露", "intro": "" },
+    { "slug": "gift",  "name": "精緻禮盒系列", "short": "精緻禮盒", "subtitle": "送禮最佳的選擇", "blurb": "茶香與手工皂禮盒", "intro": "" }
+  ]
+}

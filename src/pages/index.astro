@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+import { site, allProducts, productsIn, url } from '../lib/site';
+
+const featured = ['S01', 'S13', 'S12', 'S14', 'P01', 'G03']
+  .map((id) => allProducts.find((p) => p.id === id)!)
+  .filter(Boolean);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: `${site.name} ${site.nameEn}`,
+  url: Astro.site?.href,
+  telephone: '+886-2-2711-5939',
+  sameAs: [site.line],
+};
+---
+<Base>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">APPLE MANOR · {site.tagline}</p>
+      <h1>回歸自然的<br />天然草本生活</h1>
+      <p class="lead">{site.about.intro}</p>
+      <div class="btn-row">
+        <a class="btn" href={url('/soap/')}>瀏覽手工皂</a>
+        <a class="btn ghost" href="#contact">聯絡我們</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cats" aria-label="商品分類">
+    {site.categories.map((c) => (
+      <a class="cat" href={url(`/${c.slug}/`)}>
+        <span class="n">{c.name}</span>
+        <span class="c">{c.blurb}</span>
+        <span class="count">{productsIn(c.slug).length} 項商品</span>
+      </a>
+    ))}
+  </section>
+
+  <section class="section about" id="about" aria-labelledby="about-title">
+    <div class="wrap in">
+      <div>
+        <p class="eyebrow">關於蘋果莊園</p>
+        <h2 id="about-title">傳承漢方的純樸與自然</h2>
+      </div>
+      <div class="cols">
+        <div>
+          <h3>{site.about.philosophyLabel}</h3>
+          <p>{site.about.philosophy}</p>
+        </div>
+        <div>
+          <h3>{site.about.promiseLabel}</h3>
+          <p>{site.about.promise}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>精選商品</h2>
+        <a href={url('/soap/')}>查看全部手工皂 →</a>
+      </div>
+      <div class="grid">
+        {featured.map((p, i) => <ProductCard product={p} eager={i < 3} />)}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: 96px 0 72px; }
+  .hero h1 { font-size: 48px; margin-bottom: 20px; }
+  .hero .lead { max-width: 600px; color: var(--muted); margin-bottom: 32px; }
+  .cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-bottom: 24px; }
+  .cat { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; color: inherit; transition: border-color .15s, transform .15s; }
+  .cat:hover { border-color: var(--brand); transform: translateY(-2px); color: inherit; }
+  .cat .n { font-family: var(--font-serif); font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .cat .c { color: var(--muted); font-size: 14px; }
+  .cat .count { margin-top: 12px; color: var(--brand); font-size: 13px; }
+  .about .in { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; }
+  .about h2 { font-size: 30px; }
+  .about .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .about h3 { font-size: 16px; color: var(--brand); margin-bottom: 8px; }
+  .about .cols p { color: var(--muted); margin: 0; }
+  @media (max-width: 960px) { .cats { grid-template-columns: 1fr 1fr; } .about .in { grid-template-columns: 1fr; gap: 24px; } }
+  @media (max-width: 720px) {
+    .hero { padding: 56px 0 44px; }
+    .hero h1 { font-size: 32px; }
+    .about h2 { font-size: 24px; }
+    .about .cols { grid-template-columns: 1fr; gap: 20px; }
+  }
+  @media (max-width: 420px) { .cats { grid-template-columns: 1fr; } }
+</style>

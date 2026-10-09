@@ -1,0 +1,12 @@
+---
+import { url, productImage, type Product } from '../lib/site';
+interface Props { product: Product; eager?: boolean }
+const { product, eager = false } = Astro.props;
+---
+<a class="card" href={url(`/products/${product.slug}/`)}>
+  <div class="ph">
+    <img src={productImage(product)} alt={product.alt} width="800" height="800" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  </div>
+  <div class="t">{product.name}</div>
+  <div class="s">{product.summary}</div>
+</a>

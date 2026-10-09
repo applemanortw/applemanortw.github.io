@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { site, productsIn, url } from '../../lib/site';
+
+export function getStaticPaths() {
+  return site.categories.map((c) => ({ params: { category: c.slug }, props: { category: c } }));
+}
+const { category } = Astro.props;
+const items = productsIn(category.slug);
+const description = `${site.name}${category.name}：${items.map((p) => p.name).join('、')}。${category.subtitle}`;
+---
+<Base title={category.name} description={description}>
+  <div class="wrap page-head">
+    <nav class="crumb" aria-label="路徑">
+      <ol><li><a href={url('/')}>首頁</a></li><li aria-current="page">{category.name}</li></ol>
+    </nav>
+    <h1>{category.name}</h1>
+    <p class="sub">{category.subtitle}</p>
+    {category.intro && <p class="intro">{category.intro}</p>}
+  </div>
+  <section class="wrap section" style="padding-top: 24px">
+    <div class="grid">
+      {items.map((p, i) => <ProductCard product={p} eager={i < 3} />)}
+    </div>
+  </section>
+</Base>
