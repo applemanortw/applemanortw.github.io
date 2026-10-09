@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ContactButtons from '../components/ContactButtons.astro';
-import { site, allProducts, productsIn, url } from '../lib/site';
+import { site, allProducts, productsIn, productImage, url } from '../lib/site';
 
 const featured = ['S01', 'S13', 'S12', 'S14', 'P01', 'G03']
   .map((id) => allProducts.find((p) => p.id === id)!)
@@ -33,13 +33,21 @@ const jsonLd = {
   </section>
 
   <section class="wrap cats" aria-label="商品分類">
-    {site.categories.map((c) => (
-      <a class="cat" href={url(`/${c.slug}/`)}>
-        <span class="n">{c.name}</span>
-        <span class="c">{c.blurb}</span>
-        <span class="count">{productsIn(c.slug).length} 項商品</span>
-      </a>
-    ))}
+    {site.categories.map((c) => {
+      const cover = allProducts.find((p) => p.slug === c.cover) ?? productsIn(c.slug)[0];
+      return (
+        <a class="cat" href={url(`/${c.slug}/`)}>
+          <div class="cat-img">
+            <img src={productImage(cover)} alt="" width="600" height="600" loading="eager" decoding="async" />
+          </div>
+          <div class="cat-body">
+            <span class="n">{c.name}</span>
+            <span class="c">{c.blurb}</span>
+            <span class="count">{productsIn(c.slug).length} 項商品 →</span>
+          </div>
+        </a>
+      );
+    })}
   </section>
 
   <section class="section about" id="about" aria-labelledby="about-title">
@@ -81,12 +89,16 @@ const jsonLd = {
   .hero { padding: 96px 0 72px; }
   .hero h1 { font-size: 48px; margin-bottom: 20px; }
   .hero .lead { max-width: 600px; color: var(--muted); margin-bottom: 32px; }
-  .cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-bottom: 24px; }
-  .cat { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; color: inherit; transition: border-color .15s, transform .15s; }
-  .cat:hover { border-color: var(--brand); transform: translateY(-2px); color: inherit; }
-  .cat .n { font-family: var(--font-serif); font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding-bottom: 24px; }
+  .cat { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; color: inherit; transition: border-color .15s, transform .15s, box-shadow .15s; }
+  .cat:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: 0 12px 28px -18px rgba(0,0,0,.25); color: inherit; }
+  .cat-img { aspect-ratio: 1 / 1; background: #efebe3; overflow: hidden; }
+  .cat-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+  .cat:hover .cat-img img { transform: scale(1.04); }
+  .cat-body { display: flex; flex-direction: column; padding: 16px 18px 18px; }
+  .cat .n { font-family: var(--font-serif); font-size: 18px; font-weight: 600; margin-bottom: 2px; }
   .cat .c { color: var(--muted); font-size: 14px; }
-  .cat .count { margin-top: 12px; color: var(--brand); font-size: 13px; }
+  .cat .count { margin-top: 10px; color: var(--brand); font-size: 13px; font-weight: 500; }
   .about .in { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; }
   .about h2 { font-size: 30px; }
   .about-brand { display: flex; flex-direction: column; gap: 20px; }
@@ -101,5 +113,6 @@ const jsonLd = {
     .about h2 { font-size: 24px; }
     .about .cols { grid-template-columns: 1fr; gap: 20px; }
   }
-  @media (max-width: 420px) { .cats { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .cats { gap: 14px; } .cat-body { padding: 12px 14px 14px; } .cat .n { font-size: 16px; } .cat .c { font-size: 13px; } .cat .count { font-size: 12px; } }
+  @media (prefers-reduced-motion: reduce) { .cat, .cat-img img { transition: none; } }
 </style>
