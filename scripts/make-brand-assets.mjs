@@ -1,4 +1,4 @@
-// 產生 favicon、apple-touch-icon、OG 分享圖、LINE QR code（WebP）
+// 舊版：以線條圖示產生品牌資產。現已改用 src/assets/logo.png 官方 Logo，此腳本僅供備查。
 import sharp from 'sharp';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';

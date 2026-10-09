@@ -44,9 +44,12 @@ const jsonLd = {
 
   <section class="section about" id="about" aria-labelledby="about-title">
     <div class="wrap in">
-      <div>
-        <p class="eyebrow">關於蘋果莊園</p>
-        <h2 id="about-title">傳承漢方的純樸與自然</h2>
+      <div class="about-brand">
+        <img src={url('/images/logo-full.webp')} alt="蘋果莊園 Apple Manor 品牌標誌：蘋果樹，Absolutely Natural · Comprehensive Care" width="200" height="200" loading="lazy" />
+        <div>
+          <p class="eyebrow">關於蘋果莊園</p>
+          <h2 id="about-title">傳承漢方的純樸與自然</h2>
+        </div>
       </div>
       <div class="cols">
         <div>
@@ -86,6 +89,8 @@ const jsonLd = {
   .cat .count { margin-top: 12px; color: var(--brand); font-size: 13px; }
   .about .in { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; }
   .about h2 { font-size: 30px; }
+  .about-brand { display: flex; flex-direction: column; gap: 20px; }
+  .about-brand img { width: 180px; height: auto; }
   .about .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
   .about h3 { font-size: 16px; color: var(--brand); margin-bottom: 8px; }
   .about .cols p { color: var(--muted); margin: 0; }
