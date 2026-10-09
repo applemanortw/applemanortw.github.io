@@ -107,27 +107,31 @@ Minimalist product photography. A single product centered on a seamless warm off
 
 ### 植物調理（3 張）
 
-| 檔名 | 商品 | 商品描述 |
-| --- | --- | --- |
-| `P01-rose-essence-oil` | 玫瑰保養精華油 30ml | A small 30 ml amber glass dropper bottle of facial oil with a plain black dropper cap, the golden-rose colored oil visible through the glass, standing upright, no label. |
-| `P02-hokkaido-horse-oil-cream` | 北海道限定精純馬油霜 100ml | A round 100 ml frosted white glass cream jar with a brushed silver screw lid, standing upright, no label. |
-| `P03-honey-silk-mask` | 蜂蜜嫩白蠶絲面膜 | A flat rectangular sheet mask sachet in matte pearl white, lying at a slight angle, with one folded thin white silk sheet mask partially resting on top, no text on the sachet. |
+這三張以及後面的居家樂活、禮盒，**每張都請附上兩張圖**：`docs/design/logo-reference.jpg` 和該商品的原站實品圖（檔名在表格「參考圖」欄，都在 `docs/original/pics/`）。標籤上允許出現 Apple Manor 樹形 Logo，其餘文字不要。
+
+| 檔名 | 商品 | 參考圖 | 商品描述（接在共用風格後面） |
+| --- | --- | --- | --- |
+| `P01-rose-essence-oil` | 玫瑰保養精華油 30ml | `3-1.jpg` | A white rectangular gift box with its lid lifted and leaning beside it, lined inside with glossy golden-yellow satin. Nestled in the satin is a slim 30 ml clear glass bottle of pale golden facial oil with a brushed silver screw cap and a small plain white label on the front bearing only the Apple Manor tree logo from the attached reference image. The box lid carries the same small logo. Elegant and gift-like, matching the attached product photo. |
+| `P02-hokkaido-horse-oil-cream` | 北海道限定精純馬油霜 100ml | `3-2.jpg` | A round 100 ml frosted milky-white glass cream jar with a polished ridged silver screw lid, standing upright. A pale mint-green paper label wraps the lower half of the jar, bearing only the small Apple Manor tree logo from the attached reference image, no other text. Matching the attached product photo. |
+| `P03-honey-silk-mask` | 蜂蜜嫩白蠶絲面膜 | （原站無實品圖） | A flat rectangular sheet mask sachet in matte pearl white, lying at a slight angle, with one folded thin white silk sheet mask partially resting on top. A small Apple Manor tree logo from the attached reference image printed in the center of the sachet, no other text. |
 
 ### 居家樂活（2 張）
 
-| 檔名 | 商品 | 商品描述 |
-| --- | --- | --- |
-| `B01-laundry-soap-flakes` | 草本植萃洗衣皂絲 600g | A clear stand-up resealable pouch filled with fine ivory-white natural soap flakes, standing upright, a small loose pile of soap flakes in front of it, no label. |
-| `B02-herbal-shampoo` | 草本植萃洗髮露 400ml | A tall 400 ml deep green pump bottle of shampoo with a matte black pump dispenser, standing upright, no label. |
+| 檔名 | 商品 | 參考圖 | 商品描述 |
+| --- | --- | --- | --- |
+| `B01-laundry-soap-flakes` | 草本植萃洗衣皂絲 600g | `4-1.jpg` | A clear stand-up resealable zip pouch with a frosted matte front, filled with fine ivory-white natural soap flakes, standing upright, with a small loose pile of soap flakes in front of it. A white rectangular paper label on the front of the pouch bearing only the Apple Manor tree logo from the attached reference image, no other text. Matching the attached product photo. |
+| `B02-herbal-shampoo` | 草本植萃洗髮露 400ml | `4-2.jpg` | A tall 400 ml dark olive-green plastic pump bottle of shampoo with a matte black pump dispenser, standing upright. A bright lime-green paper label wraps the bottle, bearing only the small Apple Manor tree logo from the attached reference image, no other text. Matching the attached product photo. |
 
 ### 精緻禮盒（4 張）
 
-| 檔名 | 商品 | 商品描述 |
-| --- | --- | --- |
-| `G01-tea-gift-box` | 台灣茶香禮盒組(二入) | An elegant deep red rectangular gift box with a subtle brocade texture, lid slightly open to reveal two matte gold tea tins nestled in cream silk lining, no text on the box. |
-| `G02-tea-soap-gift-box` | 台灣茶香+手工皂禮盒 | An open rectangular gift box with cream silk lining containing one matte gold tea tin on the left and two round handmade soap bars on the right, one charcoal black and one ivory cream, each with the raised embossed Apple Manor tree emblem on top (as in the attached reference images), no text. |
-| `G03-wooden-soap-gift-box` | 四季花開 木製精油手工皂禮盒(四入) | An open natural light wood gift box containing four round handmade soap bars arranged in a 2 by 2 grid, colored milky white, pale yellow, blush pink and lilac purple, each with the raised embossed Apple Manor tree emblem on top (as in the attached reference images), no text. |
-| `G04-three-soap-gift-box` | 台灣三入禮盒 | An open white rectangular gift box tied with a thin red ribbon, containing three small round handmade soap bars in a row, colored ivory cream, pale yellow and lilac purple, each with the raised embossed Apple Manor tree emblem on top (as in the attached reference images), no text. |
+禮盒裡的每一塊皂都要有 "Apple Manor" 蘋果樹壓印，所以 Logo 參考圖一定要附。
+
+| 檔名 | 商品 | 參考圖 | 商品描述 |
+| --- | --- | --- | --- |
+| `G01-tea-gift-box` | 台灣茶香禮盒組(二入) | `5-1-2.jpg` | An ornate Chinese-style gift box with two doors that open from the center, covered in rich red and gold silk brocade with cranes and floral patterns, closed, with a golden decorative knot clasp in the middle and a small round white paper tag hanging from it bearing the Apple Manor tree logo from the attached reference image. Two plain vertical red paper panels on the doors with no text. Festive and luxurious, matching the attached product photo. |
+| `G02-tea-soap-gift-box` | 台灣茶香+手工皂禮盒 | `5-2-2.jpg` | An open rectangular gift box lined with glossy golden-yellow satin. Inside, on the left, a tall rectangular tea tin with a textured gold-foil surface; on the right, two square white soap boxes stacked, each with a small Apple Manor tree logo from the attached reference image. No other text. Matching the attached product photo. |
+| `G03-wooden-soap-gift-box` | 四季花開 木製精油手工皂禮盒(四入) | `5-3-3.jpg` | A square natural light-wood tray gift box holding four round handmade soap bars arranged in a 2 by 2 grid, colored milky white, dusty rose pink, pale cream yellow and soft sage green, each with the raised embossed "Apple Manor" apple tree emblem from the attached reference image. The box is tied with a sheer silver-grey organza ribbon in a bow. Matching the attached product photo. |
+| `G04-three-soap-gift-box` | 台灣三入禮盒 | `5-4-3.jpg` | A white rectangular gift box with its lid standing behind it, the lid tied with a red and white striped ribbon bow and bearing a small Apple Manor tree logo from the attached reference image. Inside the open box, three round handmade soap bars in a row on a bed of natural wood-wool shavings, colored pure white, pale cream and lilac purple, each with the raised embossed "Apple Manor" apple tree emblem. No other text. Matching the attached product photo. |
 
 ### 首頁主視覺（1 張，選配）
 
