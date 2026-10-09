@@ -2,7 +2,7 @@
 
 純靜態網站，以 [Astro](https://astro.build) 建置，部署在 GitHub Pages。
 
-- 公開網址：https://applemanor.github.io/（repo 轉移到 applemanor 組織並改名為 `applemanor.github.io` 後生效）
+- 公開網址：https://applemanortw.github.io/
 - 原站盤點：`docs/site-inventory.md`
 - 設計方向：`docs/design-direction.md`
 - 商品圖 prompt 與生圖步驟：`docs/image-prompts.md`
