@@ -19,7 +19,7 @@ const description = `${site.name}${category.name}：${items.map((p) => p.name).j
     <p class="sub">{category.subtitle}</p>
     {category.intro && <p class="intro">{category.intro}</p>}
   </div>
-  <section class="wrap section" style="padding-top: 24px">
+  <section class="wrap section" style="padding-top: 24px;">
     <div class="grid">
       {items.map((p, i) => <ProductCard product={p} eager={i < 3} />)}
     </div>
