@@ -4,7 +4,7 @@ import { readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const products = JSON.parse(readFileSync(resolve('src/data/products.json'), 'utf8'));
-const outDir = resolve('public/images/products');
+const outDir = resolve('src/assets/products');
 mkdirSync(outDir, { recursive: true });
 const force = process.argv.includes('--force');
 

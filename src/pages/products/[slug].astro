@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import ContactButtons from '../../components/ContactButtons.astro';
+import { Image, getImage } from 'astro:assets';
 import { site, allProducts, categoryBySlug, productsIn, productImage, url } from '../../lib/site';
 
 export function getStaticPaths() {
@@ -11,18 +12,19 @@ const { product } = Astro.props;
 const category = categoryBySlug(product.category)!;
 const related = productsIn(product.category).filter((p) => p.slug !== product.slug).slice(0, 3);
 const image = productImage(product);
+const og = await getImage({ src: image, width: 1200, height: 1200, format: 'webp' });
 const description = `${product.name}｜${product.summary}`;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: product.name,
   description: product.description.join(' '),
-  image: new URL(image, Astro.site).href,
+  image: new URL(og.src, Astro.site).href,
   brand: { '@type': 'Brand', name: `${site.name} ${site.nameEn}` },
   category: category.name,
 };
 ---
-<Base title={product.name} description={description} ogImage={image} ogType="product">
+<Base title={product.name} description={description} ogImage={og.src} ogType="product">
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
 
   <div class="wrap">
@@ -37,7 +39,7 @@ const jsonLd = {
 
   <article class="wrap pd">
     <div class="ph">
-      <img src={image} alt={product.alt} width="1200" height="1200" loading="eager" fetchpriority="high" />
+      <Image src={image} alt={product.alt} widths={[800, 1200]} sizes="(max-width: 860px) 100vw, 540px" format="webp" loading="eager" fetchpriority="high" />
     </div>
     <div class="info">
       <a class="tag" href={url(`/${category.slug}/`)}>{category.name}</a>

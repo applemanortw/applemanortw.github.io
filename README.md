@@ -14,7 +14,7 @@ src/data/site.json         品牌名稱、標語、電話、LINE、分類
 src/data/products.json     23 項商品（唯一的商品資料來源）
 src/pages/                 首頁、分類頁、商品頁（自動從資料檔產生）
 src/components/            頁首、頁尾、商品卡片、聯絡按鈕
-public/images/products/    商品圖（WebP，1200×1200）
+src/assets/products/    商品圖（WebP，1200×1200）
 incoming/                  放新圖片用，執行 npm run images 後會自動處理
 scripts/                   圖片處理腳本
 ```
@@ -63,7 +63,7 @@ npm run preview    # 預覽 dist/
    npm run images
    ```
 
-   腳本會自動裁成正方形、縮到 1200×1200、轉成 WebP，放進 `public/images/products/`。
+   腳本會自動裁成正方形、縮到 1200×1200、轉成 WebP，放進 `src/assets/products/`。
 3. 推上 GitHub 即完成。`incoming/` 裡的原始檔不會被加入 git。
 
 想重做佔位圖（例如新增商品還沒有圖）：`npm run placeholders`。

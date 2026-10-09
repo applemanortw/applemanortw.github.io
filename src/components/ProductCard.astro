@@ -1,11 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import { url, productImage, type Product } from '../lib/site';
 interface Props { product: Product; eager?: boolean }
 const { product, eager = false } = Astro.props;
 ---
 <a class="card" href={url(`/products/${product.slug}/`)}>
   <div class="ph">
-    <img src={productImage(product)} alt={product.alt} width="800" height="800" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+    <Image src={productImage(product)} alt={product.alt} widths={[400, 800]} sizes="(max-width: 960px) 50vw, 360px" format="webp" loading={eager ? 'eager' : 'lazy'} decoding="async" />
   </div>
   <div class="t">{product.name}</div>
   <div class="s">{product.summary}</div>

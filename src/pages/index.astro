@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ContactButtons from '../components/ContactButtons.astro';
+import { Image } from 'astro:assets';
 import { site, allProducts, productsIn, productImage, url } from '../lib/site';
 
 const featured = ['S01', 'S13', 'S12', 'S14', 'P01', 'G03']
@@ -38,7 +39,7 @@ const jsonLd = {
       return (
         <a class="cat" href={url(`/${c.slug}/`)}>
           <div class="cat-img">
-            <img src={productImage(cover)} alt="" width="600" height="600" loading="eager" decoding="async" />
+            <Image src={productImage(cover)} alt="" widths={[400, 800]} sizes="(max-width: 960px) 50vw, 270px" format="webp" loading="eager" decoding="async" />
           </div>
           <div class="cat-body">
             <span class="n">{c.name}</span>
@@ -53,7 +54,7 @@ const jsonLd = {
   <section class="section about" id="about" aria-labelledby="about-title">
     <div class="wrap in">
       <div class="about-brand">
-        <img src={url('/images/logo-full.webp')} alt="蘋果莊園 Apple Manor 品牌標誌：蘋果樹，Absolutely Natural · Comprehensive Care" width="200" height="200" loading="lazy" />
+        <img src={url('/images/logo-full.webp')} alt="蘋果莊園 Apple Manor 品牌標誌：蘋果樹，Absolutely Natural · Comprehensive Care" width="400" height="400" loading="lazy" />
         <div>
           <p class="eyebrow">關於蘋果莊園</p>
           <h2 id="about-title">傳承漢方的純樸與自然</h2>

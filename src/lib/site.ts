@@ -1,3 +1,4 @@
+import type { ImageMetadata } from 'astro';
 import site from '../data/site.json';
 import products from '../data/products.json';
 
@@ -28,8 +29,13 @@ export function url(path: string): string {
   return `${base}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
-export function productImage(p: Product): string {
-  return url(`/images/products/${p.slug}.webp`);
+const productImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/products/*.webp', { eager: true });
+
+/** 商品圖（build 時由 Astro 產生多種尺寸） */
+export function productImage(p: Product): ImageMetadata {
+  const mod = productImages[`/src/assets/products/${p.slug}.webp`];
+  if (!mod) throw new Error(`找不到商品圖：src/assets/products/${p.slug}.webp`);
+  return mod.default;
 }
 
 export function categoryBySlug(slug: string): Category | undefined {

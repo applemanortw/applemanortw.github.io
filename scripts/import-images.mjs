@@ -1,4 +1,4 @@
-// 把 incoming/ 裡的 AI 生成圖裁成正方形、縮到 1200px、轉 WebP，放到 public/images/products/。
+// 把 incoming/ 裡的 AI 生成圖裁成正方形、縮到 1200px、轉 WebP，放到 src/assets/products/。
 // 檔名開頭的商品編號（S01、P02、G03…）或 slug 都可以對應。
 import sharp from 'sharp';
 import { readFileSync, readdirSync, mkdirSync, statSync } from 'node:fs';
@@ -6,7 +6,7 @@ import { resolve, basename, extname } from 'node:path';
 
 const products = JSON.parse(readFileSync(resolve('src/data/products.json'), 'utf8'));
 const inDir = resolve('incoming');
-const outDir = resolve('public/images/products');
+const outDir = resolve('src/assets/products');
 mkdirSync(outDir, { recursive: true });
 
 const files = readdirSync(inDir).filter((f) => /\.(png|jpe?g|webp)$/i.test(f));
