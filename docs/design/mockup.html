@@ -1,0 +1,72 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apple Manor 設計示意</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F4EE;--surface:#FFFFFF;--ink:#2B2A26;--muted:#6F6B63;--line:#E6E1D7;--brand:#3F6B4A;--brand-tint:#E8EFE6;--brand-deep:#2E5237}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,sans-serif;font-size:16px;line-height:1.8}
+h1,h2,h3{font-family:"Noto Serif TC",serif;font-weight:600;line-height:1.3;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{background:var(--surface);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Noto Serif TC",serif;font-weight:600;font-size:18px;color:var(--ink)}
+.logo svg{width:28px;height:28px}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav li.on{color:var(--brand);border-bottom:2px solid var(--brand)}
+.burger{display:none;width:24px;height:18px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative}.burger:after{content:"";position:absolute;left:0;right:0;top:6px;border-top:2px solid var(--ink)}
+.hero{padding:96px 0 72px}
+.hero .eyebrow{color:var(--brand);font-size:14px;letter-spacing:.2em;margin-bottom:16px}
+.hero h1{font-size:44px;letter-spacing:.04em;margin-bottom:20px}
+.hero p{max-width:560px;color:var(--muted);margin:0 0 32px}
+.btn{display:inline-block;padding:12px 28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:500;font-size:15px;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--brand);margin-left:12px}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:0 0 72px}
+.cat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;text-decoration:none;color:inherit}
+.cat .n{font-family:"Noto Serif TC",serif;font-size:18px;font-weight:600;margin-bottom:6px}.cat .c{color:var(--muted);font-size:14px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px}.sec-h h2{font-size:28px}.sec-h a{color:var(--brand);font-size:14px;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px;padding-bottom:80px}
+.card{text-decoration:none;color:inherit}
+.ph{aspect-ratio:1/1;border-radius:12px;background:#EFEBE3;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;overflow:hidden}
+.ph:before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.55),rgba(0,0,0,.04))}
+.soap{width:52%;aspect-ratio:1;border-radius:50%;box-shadow:0 18px 30px -12px rgba(0,0,0,.28),inset 0 -6px 12px rgba(0,0,0,.08);position:relative}
+.soap:after{content:"";position:absolute;inset:18%;border-radius:50%;border:1.5px dashed rgba(255,255,255,.5)}
+.card .t{font-weight:500;font-size:17px}.card .s{color:var(--muted);font-size:14px}
+.tag{display:inline-block;background:var(--brand-tint);color:var(--brand-deep);font-size:12px;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.contact{background:var(--surface);border-top:1px solid var(--line);padding:64px 0}
+.contact .in{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.contact h2{font-size:28px;margin-bottom:12px}.contact p{color:var(--muted);margin:0 0 20px}
+.qr{width:140px;height:140px;border:1px solid var(--line);border-radius:12px;background:repeating-linear-gradient(90deg,#2B2A26 0 6px,transparent 6px 12px),repeating-linear-gradient(0deg,#2B2A26 0 6px,#fff 6px 12px);background-blend-mode:multiply;justify-self:end}
+footer{padding:32px 0;color:var(--muted);font-size:13px;text-align:center}
+/* product page */
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:48px 0 80px}
+.pd .ph{aspect-ratio:1/1;margin:0}
+.crumb{font-size:13px;color:var(--muted);padding-top:24px}
+.pd h1{font-size:32px;margin:8px 0 12px}
+.pd .lead{color:var(--muted);margin-bottom:24px}
+dl{display:grid;grid-template-columns:96px 1fr;gap:10px 16px;font-size:15px;border-top:1px solid var(--line);padding-top:20px;margin:0 0 28px}dt{color:var(--muted)}dd{margin:0}
+@media(max-width:720px){.nav ul{display:none}.burger{display:block}.hero{padding:56px 0 40px}.hero h1{font-size:30px}.cats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr;gap:20px 14px}.sec-h h2{font-size:22px}.contact .in{grid-template-columns:1fr}.qr{justify-self:start}.pd{grid-template-columns:1fr;gap:24px;padding-top:16px}.pd h1{font-size:26px}.btn.ghost{margin:10px 0 0}}
+</style></head><body>
+<header><div class="wrap nav"><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#3F6B4A" stroke-width="1.6"><circle cx="12" cy="9" r="6.5"/><path d="M12 15v6M9 21h6"/></svg>蘋果莊園</div><ul><li>關於蘋果莊園</li><li class="on">手工皂</li><li>植物調理</li><li>居家樂活</li><li>精緻禮盒</li></ul><div class="burger"></div></div></header>
+<div id="home">
+<section class="hero wrap"><div class="eyebrow">APPLE MANOR · 堅持草本 崇尚自然</div><h1>回歸自然的<br>天然草本生活</h1><p>我們重視每一個細節，傳承古老漢方的純樸與自然，以天然植物為基礎，創造精緻、環保且安全的高品質草本生活。</p><a class="btn" href="#">瀏覽商品</a><a class="btn ghost" href="#">LINE 聯絡我們</a></section>
+<section class="wrap cats"><a class="cat"><div class="n">手工皂商品</div><div class="c">14 款草本冷製皂</div></a><a class="cat"><div class="n">植物調理</div><div class="c">精華油、馬油霜、面膜</div></a><a class="cat"><div class="n">居家樂活</div><div class="c">洗衣皂絲、洗髮露</div></a><a class="cat"><div class="n">精緻禮盒</div><div class="c">茶香與手工皂禮盒</div></a></section>
+<section class="wrap"><div class="sec-h"><h2>手工皂商品</h2><a>查看全部 14 款 →</a></div>
+<div class="grid">
+<a class="card"><div class="ph"><div class="soap" style="background:#3A3A3A"></div></div><div class="t">草本全效皂</div><div class="s">溫和鎮靜，適合脆弱肌膚</div></a>
+<a class="card"><div class="ph"><div class="soap" style="background:#D9C6A5"></div></div><div class="t">草本嫩白皂</div><div class="s">白茯苓、杏仁，調理油水平衡</div></a>
+<a class="card"><div class="ph"><div class="soap" style="background:#F2C9C2"></div></div><div class="t">草本精油皂 · 桃花滿園</div><div class="s">胭脂樹粉、桃花精油</div></a>
+<a class="card"><div class="ph"><div class="soap" style="background:#EFE3B5"></div></div><div class="t">草本精油皂 · 梔子花開</div><div class="s">梔子粉、梔子花精油</div></a>
+<a class="card"><div class="ph"><div class="soap" style="background:#B9A3C9"></div></div><div class="t">草本精油皂 · 紫衣佳人</div><div class="s">薰衣草精油，健康好氣色</div></a>
+<a class="card"><div class="ph"><div class="soap" style="background:#F4F0E6"></div></div><div class="t">女性專用 草本私密呵護皂</div><div class="s">魚腥草，溫和不刺激</div></a>
+</div></section>
+<section class="contact"><div class="wrap in"><div><h2>聯絡我們</h2><p>歡迎來電或加入 LINE 官方帳號詢問商品與訂購。</p><a class="btn" href="#">02-2711-5939</a><a class="btn ghost" href="#">加入 LINE 好友</a></div><div class="qr"></div></div></section>
+<footer>© 2026 蘋果莊園 Apple Manor</footer>
+</div>
+<div id="product" style="display:none">
+<div class="wrap crumb">首頁 › 手工皂商品 › 草本精油皂 · 桃花滿園</div>
+<section class="wrap pd"><div class="ph"><div class="soap" style="background:#F2C9C2;width:58%"></div></div>
+<div><span class="tag">手工皂商品</span><h1>草本精油皂 · 桃花滿園</h1><p class="lead">「胭脂樹」亞馬遜河流域的原住民取它的種子拌合唾液，用手掌搓揉，塗抹在臉部皮膚，就像漢人塗胭脂一樣，因此而得名。適合各類肌膚，溫和洗淨肌膚，能夠調理肌膚油水平衡，使肌膚光滑潔淨。</p>
+<dl><dt>主要成份</dt><dd>胭脂樹粉、橄欖油、桃花精油</dd><dt>適用對象</dt><dd>適合各類肌膚，溫和洗淨肌膚</dd><dt>內容量</dt><dd>140g ± 5g</dd><dt>保存期限</dt><dd>30 個月（開封後建議 10 個月內使用完畢）</dd><dt>保存方法</dt><dd>放置於陰涼乾燥處，並避免太陽直射</dd><dt>產地</dt><dd>台灣</dd></dl>
+<a class="btn" href="#">LINE 詢問訂購</a><a class="btn ghost" href="#">02-2711-5939</a></div></section>
+<footer>© 2026 蘋果莊園 Apple Manor</footer>
+</div>
+</body></html>
