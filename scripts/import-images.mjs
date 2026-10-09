@@ -15,7 +15,11 @@ if (files.length === 0) { console.log('incoming/ 沒有圖片'); process.exit(0)
 let done = 0;
 for (const f of files) {
   const stem = basename(f, extname(f)).toLowerCase();
-  const p = products.find((x) => stem.startsWith(x.id.toLowerCase()) || stem.includes(x.slug));
+  // 先比對編號開頭（S01、P02…），再比對完整 slug；避免 laundry-soap 誤配到 laundry-soap-flakes
+  const p =
+    products.find((x) => stem.startsWith(x.id.toLowerCase() + '-') || stem === x.id.toLowerCase()) ??
+    products.find((x) => stem === x.slug || stem.endsWith('-' + x.slug)) ??
+    products.find((x) => stem.includes(x.slug));
   if (!p) { console.warn(`略過 ${f}：檔名對不到任何商品`); continue; }
   const out = resolve(outDir, `${p.slug}.webp`);
   await sharp(resolve(inDir, f))
