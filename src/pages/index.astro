@@ -26,7 +26,7 @@ const jsonLd = {
     <div class="wrap">
       <p class="eyebrow">APPLE MANOR · {site.tagline}</p>
       <h1>回歸自然的<br />天然草本生活</h1>
-      <p class="lead">{site.about.intro}</p>
+      <p class="lead">{site.heroLead}</p>
       <div class="btn-row">
         <a class="btn" href={url('/soap/')}>瀏覽手工皂</a>
         <a class="btn ghost" href="#contact">聯絡我們</a>
@@ -52,21 +52,20 @@ const jsonLd = {
     })}
   </section>
 
-  <section class="section about" id="about" aria-labelledby="about-title">
-    <div class="wrap in">
-      <div class="about-brand">
-        <img src={url('/images/logo-full.webp')} alt="蘋果莊園 Apple Manor 品牌標誌：蘋果樹，Absolutely Natural · Comprehensive Care" width="400" height="400" loading="lazy" />
-        <div>
-          <p class="eyebrow">關於蘋果莊園</p>
-          <h2 id="about-title">傳承漢方的純樸與自然</h2>
-        </div>
-      </div>
-      <div class="cols">
-        <div>
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="wrap about-in">
+      <img class="about-logo" src={url('/images/logo-full.webp')} alt="蘋果莊園 Apple Manor 品牌標誌：蘋果樹，Absolutely Natural · Comprehensive Care" width="400" height="400" loading="lazy" />
+      <p class="eyebrow">關於蘋果莊園</p>
+      <h2 id="about-title">傳承漢方的純樸與自然</h2>
+      <p class="about-intro">{site.about.intro}</p>
+      <div class="values">
+        <div class="value">
+          <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.5 5-6"/></svg></span>
           <h3>{site.about.philosophyLabel}</h3>
           <p>{site.about.philosophy}</p>
         </div>
-        <div>
+        <div class="value">
+          <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
           <h3>{site.about.promiseLabel}</h3>
           <p>{site.about.promise}</p>
         </div>
@@ -101,19 +100,30 @@ const jsonLd = {
   .cat .n { font-family: var(--font-serif); font-size: 18px; font-weight: 600; margin-bottom: 2px; }
   .cat .c { color: var(--muted); font-size: 14px; }
   .cat .count { margin-top: 10px; color: var(--brand); font-size: 13px; font-weight: 500; }
-  .about .in { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; }
-  .about h2 { font-size: 30px; }
-  .about-brand { display: flex; flex-direction: column; gap: 20px; }
-  .about-brand img { width: 180px; height: auto; }
-  .about .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .about h3 { font-size: 16px; color: var(--brand); margin-bottom: 8px; }
-  .about .cols p { color: var(--muted); margin: 0; }
-  @media (max-width: 960px) { .cats { grid-template-columns: 1fr 1fr; } .about .in { grid-template-columns: 1fr; gap: 24px; } }
+  .about { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 72px 0; margin-top: 40px; }
+  .about-in { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .about-logo { width: 150px; height: auto; margin-bottom: 28px; }
+  .about h2 { font-size: 32px; margin-bottom: 18px; }
+  .about-intro { max-width: 640px; color: var(--muted); margin-bottom: 40px; }
+  .values { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 760px; }
+  .value { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; text-align: center; }
+  .value-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--brand-tint); color: var(--brand); margin-bottom: 14px; }
+  .value-icon svg { width: 24px; height: 24px; }
+  .value h3 { font-size: 18px; margin-bottom: 8px; }
+  .value p { color: var(--muted); margin: 0; font-size: 15px; }
+  @media (max-width: 960px) { .cats { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 720px) {
     .hero { padding: 56px 0 44px; }
     .hero h1 { font-size: 32px; }
+    .about { padding: 48px 0; margin-top: 24px; }
+    .about-logo { width: 120px; margin-bottom: 20px; }
     .about h2 { font-size: 24px; }
-    .about .cols { grid-template-columns: 1fr; gap: 20px; }
+    .about-intro { margin-bottom: 28px; }
+    .values { grid-template-columns: 1fr; gap: 12px; }
+    .value { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; text-align: left; padding: 18px 18px; align-items: start; }
+    .value-icon { width: 44px; height: 44px; grid-row: 1 / span 2; margin: 0; }
+    .value h3 { font-size: 16px; margin-bottom: 4px; }
+    .value p { font-size: 14px; }
   }
   @media (max-width: 720px) { .cats { gap: 14px; } .cat-body { padding: 12px 14px 14px; } .cat .n { font-size: 16px; } .cat .c { font-size: 13px; } .cat .count { font-size: 12px; } }
   @media (prefers-reduced-motion: reduce) { .cat, .cat-img img { transition: none; } }
