@@ -2,7 +2,7 @@
 
 純靜態網站，以 [Astro](https://astro.build) 建置，部署在 GitHub Pages。
 
-- 公開網址：https://doraak47.github.io/applemanor/
+- 公開網址：https://applemanor.github.io/（repo 轉移到 applemanor 組織並改名為 `applemanor.github.io` 後生效）
 - 原站盤點：`docs/site-inventory.md`
 - 設計方向：`docs/design-direction.md`
 - 商品圖 prompt 與生圖步驟：`docs/image-prompts.md`
@@ -25,7 +25,7 @@ scripts/                   圖片處理腳本
 
 ```bash
 npm install
-npm run dev        # 開發模式，開 http://localhost:4321/applemanor/
+npm run dev        # 開發模式，開 http://localhost:4321/
 npm run build      # 輸出靜態檔到 dist/
 npm run preview    # 預覽 dist/
 ```
