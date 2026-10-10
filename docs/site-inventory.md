@@ -329,7 +329,7 @@
 | --- | --- | --- |
 | 價格 | 全部沒有 | 要不要在新站顯示價格？要的話請提供 23 項的售價 |
 | 訂購方式 | 無 | 新站建議以「電話 + LINE」為主要聯絡管道，要不要另加 Email 或表單？ |
-| LINE 連結 | `https://lin.ee/jkzuyIV`（由 QR code 解碼） | 請確認這個連結仍有效 |
+| LINE 連結 | `https://lin.ee/jkzuyIV`（由 QR code 解碼） | 業主確認已失效，新站暫不顯示 LINE；`site.json` 的 `line` 留空即隱藏 |
 | 電話 | 02-27115939 | 請確認仍正確 |
 | 地址、營業時間 | 無 | 需要顯示嗎？ |
 | Email | 無 | 已由業主提供：applemanor888@yahoo.com.tw，新站頁尾顯示 |

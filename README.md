@@ -52,7 +52,7 @@ npm run preview    # 預覽 dist/
 
 新增商品：複製一個物件，改掉所有欄位，再放一張圖片。
 刪除商品：把那個物件整段刪掉，順便刪掉對應的圖片。
-分類名稱、電話、LINE 連結在 `src/data/site.json`。
+分類名稱、電話、Email、Facebook、LINE 連結在 `src/data/site.json`。`line` 留空字串時，網站上所有 LINE 按鈕與卡片會自動隱藏；之後有新的 LINE 官方帳號，填回連結即可。
 
 ## 替換商品圖片
 

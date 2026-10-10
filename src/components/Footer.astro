@@ -8,11 +8,12 @@ const icons = {
   facebook: '<path d="M14 8h2.5V4.5H14c-2.5 0-4 1.6-4 4V11H7.5v3.5H10V21h3.5v-6.5h2.6l.6-3.5h-3.2V9c0-.6.4-1 1.1-1z" fill="currentColor" stroke="none"/>',
 };
 const cards = [
+  ...[
   { key: 'phone', label: '電話', value: site.phone, href: site.phoneHref, external: false },
   { key: 'line', label: 'LINE 官方帳號', value: '加入好友線上詢問', href: site.line, external: true },
   { key: 'mail', label: 'Email', value: site.email, href: `mailto:${site.email}`, external: false },
   { key: 'facebook', label: 'Facebook', value: '蘋果莊園粉絲專頁', href: site.facebook, external: true },
-];
+].filter((c) => c.href)];
 ---
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap">
@@ -41,7 +42,7 @@ const cards = [
   .contact { background: var(--surface); border-top: 1px solid var(--line); padding: 64px 0; }
   .contact h2 { font-size: 28px; margin-bottom: 8px; }
   .contact > .wrap > p { margin-bottom: 28px; }
-  .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .ccard { display: flex; flex-direction: column; gap: 4px; height: 100%; padding: 22px 20px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); transition: border-color .15s, transform .15s; }
   .ccard:hover { border-color: var(--brand); transform: translateY(-2px); color: var(--ink); }
   .icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--brand-tint); color: var(--brand); margin-bottom: 10px; }
