@@ -12,7 +12,10 @@ const links = [
   <div class="wrap bar">
     <a class="brand" href={url('/')} aria-label={`${site.name} 首頁`}>
       <img src={url('/images/logo-tree.png')} alt="" width="30" height="32" />
-      <span>{site.name}</span>
+      <span class="wordmark">
+        <span class="zh">{site.name}</span>
+        <span class="en" aria-hidden="true">Apple<i>•</i>Manor</span>
+      </span>
     </a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">
       <span></span><span></span><span></span>
@@ -30,8 +33,12 @@ const links = [
 <style>
   .site-header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; }
   .bar { display: flex; align-items: center; justify-content: space-between; height: 64px; position: relative; }
-  .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-serif); font-weight: 600; font-size: 19px; color: var(--ink); }
-  .brand img { width: 30px; height: auto; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
+  .brand img { width: 34px; height: auto; }
+  .wordmark { display: flex; flex-direction: column; line-height: 1.1; }
+  .zh { font-family: var(--font-serif); font-weight: 600; font-size: 18px; letter-spacing: .04em; }
+  .en { font-family: 'Kalam', 'Comic Sans MS', cursive; font-weight: 700; font-size: 13px; color: var(--brand); letter-spacing: .06em; margin-top: 2px; }
+  .en i { font-style: normal; color: #D7262D; margin: 0 4px; }
   .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
   .nav a { display: inline-block; padding: 6px 0; color: var(--ink); font-size: 15px; border-bottom: 2px solid transparent; }
   .nav a:hover { color: var(--brand); }
